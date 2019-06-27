@@ -14,8 +14,8 @@ let g:loaded_piano = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-autocmd InsertCharPre * call play#piano(v:char)
-autocmd InsertLeave * call sound_clear()
+autocmd InsertCharPre * :call play#piano(v:char)<CR>
+autocmd InsertLeave * :call sound_clear()<CR>
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
