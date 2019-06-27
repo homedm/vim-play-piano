@@ -14,8 +14,18 @@ let g:loaded_piano = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-autocmd InsertCharPre * :call piano#play(v:char)<CR>
-autocmd InsertLeave * :call sound_clear()<CR>
+let g:piano_sounds_directory = {
+            \ 'q': expand('$HOME/vim/plugin/piano.vim/sounds/se_maoudamashii_instruments_piano2_1do.wav'),
+            \'w': expand('$HOME/vim/plugin/piano.vim/sounds/se_maoudamashii_instruments_piano2_2re.wav'),
+            \'e': expand('$HOME/vim/plugin/piano.vim/sounds/se_maoudamashii_instruments_piano2_3mi.wav'),
+            \'r': expand('$HOME/vim/plugin/piano.vim/sounds/se_maoudamashii_instruments_piano2_4fa.wav'),
+            \'t': expand('$HOME/vim/plugin/piano.vim/sounds/se_maoudamashii_instruments_piano2_5so.wav'),
+            \'y': expand('$HOME/vim/plugin/piano.vim/sounds/se_maoudamashii_instruments_piano2_6ra.wav'),
+            \'u': expand('$HOME/vim/plugin/piano.vim/sounds/se_maoudamashii_instruments_piano2_7si.wav')
+            \}
+
+autocmd InsertCharPre * :call piano#play(v:char)
+autocmd InsertLeave * :call sound_clear()
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
