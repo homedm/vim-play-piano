@@ -24,7 +24,7 @@ let g:piano_sounds_directory = {
     'u': expand('$HOME/vim/plugin/piano.vim/sounds/se_maoudamashii_instruments_piano2_7si.wav')
 }
 
-function! play#piano(kind) abort
+function! piano#play(kind) abort
     call sound_playfile(g:piano_sounds_directory[kind])
 endfunction
 
