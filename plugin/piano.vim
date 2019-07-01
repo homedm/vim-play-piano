@@ -24,8 +24,22 @@ let g:piano_sounds_directory = {
             \'u': expand('$HOME/vim/plugin/piano.vim/sounds/se_maoudamashii_instruments_piano2_7si.wav')
             \}
 
-autocmd InsertCharPre * :call piano#play(v:char)
-autocmd InsertLeave * :call sound_clear()
+command! StartPiano call piano#start()
+command! StopPiano call piano#stop()
+
+function! piano#start() abort
+    augroup piano
+        autocmd!
+        autocmd InsertCharPre * :call piano#play(v:char)
+        autocmd InsertLeave * :call sound_clear()
+    augroup END
+endfunction
+
+function! piano#stop() abort
+    augroup piano
+        autocmd!
+    augroup END
+endfunction
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
