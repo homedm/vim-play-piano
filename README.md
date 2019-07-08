@@ -24,5 +24,12 @@ let g:piano_sounds_directory = {
 Plug 'homedm/vim-play-piano'
 ```
 
+## Usage
+when you play piano on Vim
+
+```
+:StartPiano
+```
+
 ## sounds
 デフォルトの音声ファイルは、[魔王魂](https://maoudamashii.jokersounds.com/link.html) 様からお借りしております。
